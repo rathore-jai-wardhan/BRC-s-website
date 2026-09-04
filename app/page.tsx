@@ -12,7 +12,7 @@ export default async function Home() {
         {runs.map((run: any) => (
           <div
             key={run._id}
-            className={`border rounded-lg p-4 shadow ${
+            className={`bg-[#1a1a1c] border rounded-lg p-4 shadow ${
             run.runType === 'thursday' ? 'border-orange-500' : 'border-green-500'
             }`}
           >
