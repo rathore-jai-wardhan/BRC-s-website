@@ -32,7 +32,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
           <div className="flex gap-6">
             <a href={SOCIALS.instagram} target="_blank" className="text-sm text-[var(--muted)] hover:text-[var(--brand)] transition-colors">Instagram</a>
-            <a href={SOCIALS.whatsapp} target="_blank" className="text-sm text-[var(--muted)] hover:text-[var(--brand)] transition-colors">WhatsApp</a>
           </div>
         </header>
         {children}
