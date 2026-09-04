@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { SOCIALS } from '@/sanity/lib/constants';
+
+// inside the body, before {children}:
+<header className="flex items-center justify-between px-6 py-4 border-b border-neutral-800">
+  <div className="flex items-center gap-3">
+    <img src="/BRC_logo.jpeg" alt="Bikaner Run Club" className="h-10 w-10 rounded-full" />
+    <span className="font-bold text-lg">Bikaner Run Club</span>
+  </div>
+  <div className="flex gap-4">
+    <a href={SOCIALS.instagram} target="_blank" className="text-sm text-neutral-300 hover:text-white">Instagram</a>
+    <a href={SOCIALS.whatsapp} target="_blank" className="text-sm text-neutral-300 hover:text-white">WhatsApp</a>
+  </div>
+</header>
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
