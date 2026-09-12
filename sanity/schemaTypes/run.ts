@@ -82,5 +82,13 @@ export const run = defineType({
       initialValue: 'upcoming',
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: 'routePdf',
+      title: 'Route Info PDF',
+      type: 'file',
+      options: {
+        accept: 'application/pdf',
+      },
+    }),  
   ],
 })

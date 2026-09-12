@@ -34,6 +34,16 @@ export default async function Home() {
             </p>
               <p style={{ color: 'var(--muted)' }}>{run.venue}</p>
               {run.guest && <p style={{ color: 'var(--muted)' }}>Guest: {run.guest}</p>}
+              {run.routePdfUrl && (
+                <a 
+                href={run.routePdfUrl}
+                 target="_blank"
+                 className="block mt-2 text-sm underline"
+                 style={{ color: 'var(--brand)' }}
+                >
+                View Route PDF
+              </a>
+              )}
               <a href={run.registrationFormUrl} target="_blank" className="inline-block mt-3 px-5 py-2.5 rounded-lg font-medium" style={{ backgroundColor: 'var(--brand)', color: '#fff' }}>
                 Register Now
               </a>
