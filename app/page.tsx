@@ -1,73 +1,75 @@
-import { client } from '@/sanity/lib/client'
-import { upcomingRunsQuery } from '@/sanity/lib/queries'
-import { urlFor } from '@/sanity/lib/image'
+import { client } from "@/sanity/lib/client";
+import { upcomingRunsQuery } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
+import Footer from "@/components/footer";
+import Hero from "@/components/hero";
 
-export const revalidate = 30
+export const revalidate = 30;
 
 export default async function Home() {
-  const runs = await client.fetch(upcomingRunsQuery)
+  const runs = await client.fetch(upcomingRunsQuery);
+
+  const firstRun = runs?.[0];
 
   return (
-    <main className="p-8 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-        Upcoming Runs
-      </h1>
+    <main>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {runs.map((run: any) => {
-          const accentColor = run.runType === 'thursday' ? 'var(--accent-thursday)' : 'var(--accent-sunday)'
-          const cardBorder = '1px solid ' + accentColor
+      {/* HERO */}
+         <Hero
+         posterImageUrl={
+         firstRun?.posterImage
+         ? urlFor(firstRun.posterImage).width(900).url()
+         : ""
+          }
+        />
 
-          return (
-            <div key={run._id} className="rounded-xl p-5 shadow-lg" style={{ backgroundColor: 'var(--surface)', border: cardBorder }}>
-              {run.posterImage && (
-                <img src={urlFor(run.posterImage).width(500).url()} alt={run.title} className="rounded-lg mb-4 w-full max-w-[280px] mx-auto" />
-              )}
-              <h2 className="text-xl font-semibold" style={{ color: 'var(--foreground)' }}>{run.title}</h2>
-              <p className="capitalize text-sm font-semibold mb-1" style={{ color: accentColor }}>{run.runType}</p>
-             <p className="text-zinc-400 text-sm mt-1 mb-3">
-               {new Date(run.date).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-              })} · {run.time}
-            </p>
-              <p style={{ color: 'var(--muted)' }}>{run.venue}</p>
-              {run.guest && <p style={{ color: 'var(--muted)' }}>Guest: {run.guest}</p>}
-              {run.routePdfUrl && (
-                <a 
-                href={run.routePdfUrl}
-                 target="_blank"
-                 className="block mt-2 text-sm underline"
-                 style={{ color: 'var(--brand)' }}
-                >
-                View Route PDF
-              </a>
-              )}
-              <a href={run.registrationFormUrl} target="_blank" className="inline-block mt-3 px-5 py-2.5 rounded-lg font-medium" style={{ backgroundColor: 'var(--brand)', color: '#fff' }}>
-                Register Now
-              </a>
-            </div>
-          )
-        })}
-      </div>
+      {/* MEMBERSHIP */}
+      <section className="px-6 py-20 md:py-28 bg-[#f4f0e8] text-[#0d1321]">
+        <div className="max-w-5xl mx-auto text-center">
 
-      <section className="mt-12 pt-8" style={{ borderTop: '1px solid var(--surface-border)' }}>
-        <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>Join the Club</h2>
-        <div className="flex flex-col md:flex-row gap-4">
-          <div className="rounded-xl p-5 flex-1" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--surface-border)' }}>
-            <h3 className="font-semibold mb-1" style={{ color: 'var(--foreground)' }}>New here? Become a member</h3>
-            <p className="text-sm mb-3" style={{ color: 'var(--muted)' }}>One-time registration.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScHOM6ZGqpXSNXnpAYkuYdIpE8ZD-XjT-rxLpDRmw1APilw7g/viewform" target="_blank" className="inline-block px-5 py-2.5 rounded-lg font-medium" style={{ backgroundColor: 'var(--brand)', color: '#fff' }}>
-              Register as Member
+
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            Rooted in Bikaner
+            <br />
+            Built around running
+          </h2>
+
+          <p className="max-w-2xl mx-auto text-lg text-black/60 mb-8">
+            A growing running community built around regular runs
+           and showing up.
+          </p>
+
+          {firstRun?.registrationFormUrl && (
+            <a
+              href={firstRun.registrationFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-7 py-3.5 rounded-full bg-[#0d1321] text-white font-semibold hover:bg-orange-600 transition"
+            >
+              Become a Member →
             </a>
-          </div>
-          <div className="rounded-xl p-5 flex-1" style={{ backgroundColor: 'var(--surface)', border: '1px solid var(--surface-border)' }}>
-            <h3 className="font-semibold mb-1" style={{ color: 'var(--foreground)' }}>Already a member?</h3>
-            <p className="text-sm" style={{ color: 'var(--muted)' }}>Register for this week's run above.</p>
-          </div>
+          )}
+
         </div>
       </section>
+
+      {/* COLLABORATORS */}
+      <section className="px-6 py-14 bg-white">
+        <div className="max-w-5xl mx-auto text-center">
+
+          <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-8">
+            Proudly running with
+          </p>
+
+          <div className="flex justify-center items-center gap-12 flex-wrap text-black/50">
+            <span className="text-sm">
+              Sponsors & Collaborators
+            </span>
+          </div>
+
+        </div>
+      </section>
+     <Footer />
     </main>
-  )
+  );
 }

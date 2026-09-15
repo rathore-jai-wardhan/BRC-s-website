@@ -4,10 +4,13 @@
   --background: #0d1321;
   --surface: #16203a;
   --surface-border: #2a3655;
+
   --foreground: #f2f0e9;
   --muted: #8b96b3;
+
   --brand: #d97706;
   --brand-hover: #b45309;
+
   --accent-thursday: #d97706;
   --accent-sunday: #65a30d;
 }
@@ -15,11 +18,17 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
