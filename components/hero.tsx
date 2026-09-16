@@ -29,7 +29,7 @@ export default function Hero({ posterImageUrl }: { posterImageUrl: string }) {
 
       <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24 gap-6">
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24 gap-10 md:gap-6">
         <div className="relative w-[72%] max-w-[420px] aspect-[3/4]">
           {posterImageUrl && (
             <Image
