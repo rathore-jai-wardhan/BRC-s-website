@@ -15,13 +15,7 @@ export default async function Home() {
     <main>
 
       {/* HERO */}
-         <Hero
-         posterImageUrl={
-         firstRun?.posterImage
-         ? urlFor(firstRun.posterImage).width(900).url()
-         : ""
-          }
-        />
+         <Hero/>
 
       {/* MEMBERSHIP */}
       <section className="px-6 py-20 md:py-28 bg-[#f4f0e8] text-[#0d1321]">
