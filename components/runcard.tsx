@@ -25,13 +25,15 @@ export default function RunCard({
   return (
     <article className="rounded-2xl overflow-hidden border border-[var(--surface-border)] bg-[var(--surface)]">
 
-      {run.posterImage && (
-        <img
-          src={urlFor(run.posterImage).width(900).url()}
-          alt={run.title}
-          className="w-full aspect-[4/3] object-cover"
-        />
-      )}
+       {run.posterImage && (
+           <div className="relative w-full aspect-[3/4] bg-[var(--surface-border)]">
+            <img
+             src={urlFor(run.posterImage).width(900).url()}
+             alt={run.title}
+               className="w-full h-full object-contain"
+             />
+             </div>
+        )}
 
       <div className="p-5 md:p-6">
 

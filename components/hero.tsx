@@ -15,6 +15,8 @@ export default function Hero({ posterImageUrl }: { posterImageUrl: string }) {
         fill
         priority
         sizes="100vw"
+        placeholder="blur"
+        blurDataURL={posterImageUrl}
         className="object-cover md:hidden"
       />
       {/* DESKTOP BACKGROUND */}
@@ -29,29 +31,33 @@ export default function Hero({ posterImageUrl }: { posterImageUrl: string }) {
 
       <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24 gap-10 md:gap-6">
-        <div className="relative w-[72%] max-w-[420px] aspect-[3/4]">
-          {posterImageUrl && (
-            <Image
+      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
+          <div className="relative w-[72%] max-w-[420px] aspect-[3/4]">
+               {posterImageUrl && (
+              <Image
               src={posterImageUrl}
               alt="Bikaner Run Club poster"
               fill
               priority
               sizes="(max-width: 768px) 72vw, 420px"
+              placeholder="blur"
+              blurDataURL={posterImageUrl}
               className="object-contain drop-shadow-2xl"
-            />
-          )}
-        </div>
+              />
+            )}
+          </div>
 
-        <a
-          href={MEMBER_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
-        >
-          Join the club
-        </a>
-      </div>
+  <a
+    href={MEMBER_FORM_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="mt-10 md:mt-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
+  >
+    Join the club
+  </a>
+</div>
     </section>
   );
 }
+
+  
