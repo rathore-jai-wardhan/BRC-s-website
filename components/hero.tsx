@@ -8,37 +8,35 @@ const MEMBER_FORM_URL =
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-black">
-      {/* MOBILE BACKGROUND */}
-      <Image
-        src="/poster-mobile.png"
-        alt="Bikaner desert"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover md:hidden"
-      />
-      {/* DESKTOP BACKGROUND */}
-      <Image
-        src="/poster-desktop.png"
-        alt="Bikaner desert"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover hidden md:block"
-      />
+  {/* MOBILE BACKGROUND */}
+  <Image
+    src="/poster-mobile.png"
+    alt="Bikaner desert"
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover md:hidden"
+  />
+  {/* DESKTOP BACKGROUND */}
+  <Image
+    src="/poster-desktop.png"
+    alt="Bikaner desert"
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover hidden md:block"
+  />
 
-      <div className="absolute inset-0 bg-black/20" />
+  <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
-        <a
-          href={MEMBER_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
-        >
-          Join the club
-        </a>
-      </div>
-    </section>
+  <a
+    href={MEMBER_FORM_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="absolute bottom-16 md:bottom-25 left-1/2 -translate-x-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
+  >
+    Join the club
+  </a>
+</section>
   );
 }
