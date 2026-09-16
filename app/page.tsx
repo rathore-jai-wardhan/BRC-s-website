@@ -39,17 +39,6 @@ export default async function Home() {
            and showing up.
           </p>
 
-          {firstRun?.registrationFormUrl && (
-            <a
-              href={firstRun.registrationFormUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-7 py-3.5 rounded-full bg-[#0d1321] text-white font-semibold hover:bg-orange-600 transition"
-            >
-              Become a Member →
-            </a>
-          )}
-
         </div>
       </section>
 
