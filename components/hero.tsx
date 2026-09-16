@@ -8,7 +8,25 @@ const MEMBER_FORM_URL =
 export default function Hero({ posterImageUrl }: { posterImageUrl: string }) {
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-black">
-      <Image src="/desert.png" alt="Bikaner desert" fill priority className="object-cover" />
+      {/* MOBILE BACKGROUND */}
+      <Image
+        src="/poster-mobile.png"
+        alt="Bikaner desert"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover md:hidden"
+      />
+      {/* DESKTOP BACKGROUND */}
+      <Image
+        src="/poster-desktop.png"
+        alt="Bikaner desert"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover hidden md:block"
+      />
+
       <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24 gap-6">
