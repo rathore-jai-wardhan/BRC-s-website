@@ -33,7 +33,7 @@ export default function Hero() {
     href={MEMBER_FORM_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className="absolute bottom-30 md:bottom-25 left-1/2 -translate-x-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
+    className="absolute bottom-45 md:bottom-25 left-1/2 -translate-x-1/2 z-10 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-xl whitespace-nowrap text-sm md:text-base transition-transform hover:scale-105"
   >
     Join the club
   </a>
